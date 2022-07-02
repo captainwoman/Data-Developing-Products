@@ -1,0 +1,38 @@
+---
+title: "Data Developing Project-1"
+author: "Sunaina"
+date: '2022-07-02'
+output: html_document
+---
+##Instructions
+
+Create a web page using R Markdown that features a map created with Leaflet.
+
+##Overview
+ On India map - India Gate, IGI airport and Connaught Place is marked on map.
+ 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+##Loading packages
+```{r,echo=TRUE}
+library(leaflet)
+library(sp)
+```
+## Adding longitudes and latitudes from Internet to retrieve data
+```{r, echo=TRUE}
+
+my_map <- leaflet() %>%
+  addTiles()
+  
+my_map=  addCircleMarkers(my_map, lat = 28.6129, lng = 77.2295, radius = 20, color = "#FF4500", weight = 3, popup = "India Gate") %>%
+
+addMarkers(my_map, lat = 28.6304, lng = 77.2177, popup = "Connaught Place") %>%
+
+addMarkers(my_map, lat = 28.5562, lng = 77.1000, popup = "IGI")
+
+
+my_map
+```
+## Summary
+All the three  places are being marked successfully and a web page is created with the use Leaflet.
